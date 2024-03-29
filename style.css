@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Unica One", sans-serif;
+}
+
+body {
+    background-color: rgb(37, 37, 37);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    max-width: 500px;
+    text-align: center;
+    background-color: rgb(53, 53, 53);
+    color: rgb(141, 141, 141);
+    border-radius: 30px;
+
+    
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Change color of the calendar icon */
+}
+
+input {
+    
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    background: rgb(40, 40, 40);
+    color: rgb(164, 164, 164);
+    border-radius: 50px;
+}
+
+button {
+    margin-bottom: 20px;
+    background-color: rgb(0, 242, 255);
+    color: rgb(50, 50, 50);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: rgb(40, 40, 40);
+    color: rgb(255, 255, 255);
+}
+
+p {
+    font-size: 22px;
+    color: rgb(0, 247, 255);
+}
+
+.age-group-table {
+    padding: 10px 10px;
+    border: 1px solid rgb(117, 117, 117);
+    border-collapse: collapse;
+}
+
+.age-group-table {
+    border-radius: 5px;
+}
+
+th {
+    color: white;
+}
+
+table th, td {
+    padding: 5px 5px;
+    border: 1px solid rgb(117, 117, 117);
+}

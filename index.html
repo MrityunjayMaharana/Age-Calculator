@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Age Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Age Calculator</h1>
+        <label for="b-date">Date of Birth:</label>
+        <input type="date" id="b-date" required>
+        <button id="calculate">Calculate</button>
+        <p id="result"></p>
+        <table class="age-group-table">
+            <tr>
+                <th>Age Group</th>
+                <th>Age interval</th>
+            </tr>
+            <tr>
+                <td>Neonate</td>
+                <td>First 4 weeks</td>
+            </tr>
+            <tr>
+                <td>Infant</td>
+                <td>1 month to i year</td>
+            </tr>
+            <tr>
+                <td>Toddler</td>
+                <td>1 - 3 years</td>
+            </tr>
+            <tr>
+                <td>Pre-School</td>
+                <td>3 - 5 years</td>
+            </tr>
+            <tr>
+                <td>School age</td>
+                <td>6 - 12 years</td>
+            </tr>
+            <tr>
+                <td>Adolescent</td>
+                <td>13 - 18 years</td>
+            </tr>
+            <tr>
+                <td>Young Adult</td>
+                <td>19 - 40 years</td>
+            </tr>
+            <tr>
+                <td>Middle age</td>
+                <td>41 - 65 years</td>
+            </tr>
+            <tr>
+                <td>Older age</td>
+                <td>Over 65 years</td>
+            </tr>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#calculate').click(function() {
+                var birthDate = new Date($("#b-date").val());
+                var currentDate = new Date();
+
+                if(birthDate > currentDate) {
+                    $('#result').text('Invalid Birthdate!!!')
+                } else {
+                    var ageYear = currentDate.getFullYear() - birthDate.getFullYear()
+                    var monthDiff = currentDate.getMonth() - birthDate.getMonth()
+                    var dayDiff = currentDate.getDate() - birthDate.getDate()
+
+                    if(monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                        ageYear--;
+                    
+                        if(monthDiff < 0) {
+                            monthDiff += 12;
+                        } if(dayDiff < 0) {
+                            dayDiff = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+                        }
+                    }
+
+                    var ageMonths = monthDiff;
+                    var ageDays = dayDiff;
+
+                
+                    $('#result').text(ageYear + " years " + ageMonths + ' months, and ' + ageDays + " days.")
+                }
+                
+            })
+        })
+    </script>
+</body>
+</html>
